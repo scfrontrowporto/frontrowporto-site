@@ -127,7 +127,7 @@
           "name": "Combien de voyageurs peuvent séjourner ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Jusqu'à 2 voyageurs. L'appartement dispose d'un lit double dans un coin nuit dédié et d'une salle de bain avec douche à l'italienne."
+            "text": "Jusqu'à 2 voyageurs. L'appartement dispose d'un lit double dans un coin nuit dédié et d'une salle de bain avec douche."
           }
         },
         {
