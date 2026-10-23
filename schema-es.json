@@ -172,10 +172,10 @@
         },
         {
           "@type": "Question",
-          "name": "¿A qué distancia está el apartamento del Estadio do Dragão?",
+          "name": "¿A qué distancia está el apartamento del Estádio do Dragão?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "La estación de metro de Bolhão está a un minuto a pie del apartamento. Desde allí, un metro directo al Estadio do Dragão tarda unos 7 a 8 minutos, sin trasbordos. El estadio es la casa del FC Porto, ha acogido a la selección de Portugal y es sede del Mundial de la FIFA 2030. Una base cómoda para quien visita Oporto para ver un partido."
+            "text": "La estación de metro de Bolhão está a un minuto a pie del apartamento. Desde allí, un metro directo al Estádio do Dragão tarda unos 7 a 8 minutos, sin trasbordos. El estadio es la casa del FC Porto, ha acogido a la selección de Portugal y es sede del Mundial de la FIFA 2030. Una base cómoda para quien visita Oporto para ver un partido."
           }
         },
         {
