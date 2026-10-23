@@ -17,3 +17,6 @@ User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://frontrowporto.com/sitemap.xml
+
+User-agent: OAI-SearchBot
+Allow: /

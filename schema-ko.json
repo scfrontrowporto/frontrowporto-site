@@ -1,0 +1,192 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://frontrowporto.com/#website",
+      "url": "https://frontrowporto.com/",
+      "name": "Santa Catarina Front-Row Suite"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://frontrowporto.com/ko/#webpage",
+      "url": "https://frontrowporto.com/ko/",
+      "name": "Santa Catarina Front-Row Suite | 포르투 산타 카타리나 거리 아파트",
+      "inLanguage": "ko",
+      "isPartOf": {
+        "@id": "https://frontrowporto.com/#website"
+      },
+      "mainEntity": {
+        "@id": "https://frontrowporto.com/#rental"
+      }
+    },
+    {
+      "@type": "VacationRental",
+      "identifier": "scfrs-001",
+      "name": "Santa Catarina Front-Row Suite",
+      "image": [
+        "https://frontrowporto.com/images/16-living-windows.jpg",
+        "https://frontrowporto.com/images/17-bed-area.jpg",
+        "https://frontrowporto.com/images/18-bathroom-shower.jpg",
+        "https://frontrowporto.com/images/19-open-kitchen.jpg",
+        "https://frontrowporto.com/images/20-kitchen-coffee.jpg",
+        "https://frontrowporto.com/images/21-dining-area.jpg",
+        "https://frontrowporto.com/images/22-living-sofa-tv.jpg",
+        "https://frontrowporto.com/images/23-dining-windows.jpg",
+        "https://frontrowporto.com/images/24-pedestrian-street.jpg",
+        "https://frontrowporto.com/images/25-street-entrance.jpg"
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.1496147,
+        "longitude": -8.6057736
+      },
+      "checkinTime": "16:00",
+      "checkoutTime": "11:00",
+      "@id": "https://frontrowporto.com/#rental",
+      "url": "https://frontrowporto.com/",
+      "description": "보행자 전용 산타 카타리나 거리에 면한 2인용 약 56m²의 밝은 아파트입니다. 포르투갈식 2층(한국식 3층에 해당)에 있으며, 거리를 바라보는 높은 프렌치 창 세 개, 오픈 플랜 거실과 주방, 전용 수면 공간이 있습니다.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua de Santa Catarina 392, 2 Frt Esq",
+        "addressLocality": "Porto",
+        "addressCountry": "PT"
+      },
+      "sameAs": [
+        "https://www.airbnb.com/rooms/1455066495407495959"
+      ],
+      "containsPlace": {
+        "@type": [
+          "Accommodation",
+          "Apartment"
+        ],
+        "@id": "https://frontrowporto.com/#apartment",
+        "name": "Santa Catarina Front-Row Suite",
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "value": 2
+        },
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 56,
+          "unitCode": "MTK"
+        },
+        "floorLevel": "2",
+        "numberOfBathroomsTotal": 1,
+        "bed": {
+          "@type": "BedDetails",
+          "typeOfBed": "Double",
+          "numberOfBeds": 1
+        },
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "wifi",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "ac",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "tv",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "elevator",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "kitchen",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "licenseNum",
+            "value": "Portugal AL: 165999/AL"
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "washerDryer",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://frontrowporto.com/ko/#faq",
+      "inLanguage": "ko",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "몇 명까지 숙박할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "최대 2명입니다. 전용 침실 공간에 더블 침대 1개, 워크인 샤워 시설을 갖춘 욕실 1개가 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "체크인과 체크아웃 시간은 언제인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "체크인은 16:00부터, 체크아웃은 11:00까지입니다. 세부 사항과 유연한 조정 가능 여부는 Airbnb의 각 예약에서 확인됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "재택근무에 적합한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. Wi-Fi와 전용 작업 공간이 있고, 거실에는 세 개의 높은 창으로 자연광이 들어옵니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "엘리베이터가 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. 포르투갈식 2층에 있으며 건물에 엘리베이터가 있습니다. 입구의 계단이나 개별 접근 조건은 Airbnb로 문의해 주세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "세탁기가 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 아파트 안에 세탁기와 건조기가 있어 장기 체류에도 편리합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "이 아파트를 선택할 이유는 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "포르투갈식 2층에서 높은 프렌치 창 세 개를 통해 산타 카타리나 거리를 바라볼 수 있습니다. 약 56m²의 자연광이 드는 공간과 오픈형 거실은 두 사람의 포르투 중심부 여행에 어울립니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "아파트에서 에스타디우 두 드라강까지 얼마나 걸리나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "볼량 역은 아파트에서 도보 약 1분 거리입니다. 그곳에서 에스타디우 두 드라강까지는 환승 없이 메트로로 약 7~8분 걸립니다. 이 경기장은 FC 포르투의 홈구장이며 포르투갈 국가대표팀 경기를 개최한 적이 있고 2030 FIFA 월드컵 경기장입니다. 경기를 보러 포르투를 찾는 분께 편리한 거점입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "바로 이 아파트는 어떻게 예약하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Airbnb 버튼을 눌러 Santa Catarina Front-Row Suite의 숙소 번호 1455066495407495959를 여세요. 예약 가능 날짜, 총요금, 예약 및 취소 조건은 Airbnb에서 확인할 수 있습니다."
+          }
+        }
+      ]
+    }
+  ]
+}

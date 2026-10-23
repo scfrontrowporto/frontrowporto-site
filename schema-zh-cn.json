@@ -1,0 +1,192 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://frontrowporto.com/#website",
+      "url": "https://frontrowporto.com/",
+      "name": "Santa Catarina Front-Row Suite"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://frontrowporto.com/zh-cn/#webpage",
+      "url": "https://frontrowporto.com/zh-cn/",
+      "name": "Santa Catarina Front-Row Suite | 波尔图圣卡塔琳娜街公寓",
+      "inLanguage": "zh-Hans",
+      "isPartOf": {
+        "@id": "https://frontrowporto.com/#website"
+      },
+      "mainEntity": {
+        "@id": "https://frontrowporto.com/#rental"
+      }
+    },
+    {
+      "@type": "VacationRental",
+      "identifier": "scfrs-001",
+      "name": "Santa Catarina Front-Row Suite",
+      "image": [
+        "https://frontrowporto.com/images/16-living-windows.jpg",
+        "https://frontrowporto.com/images/17-bed-area.jpg",
+        "https://frontrowporto.com/images/18-bathroom-shower.jpg",
+        "https://frontrowporto.com/images/19-open-kitchen.jpg",
+        "https://frontrowporto.com/images/20-kitchen-coffee.jpg",
+        "https://frontrowporto.com/images/21-dining-area.jpg",
+        "https://frontrowporto.com/images/22-living-sofa-tv.jpg",
+        "https://frontrowporto.com/images/23-dining-windows.jpg",
+        "https://frontrowporto.com/images/24-pedestrian-street.jpg",
+        "https://frontrowporto.com/images/25-street-entrance.jpg"
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.1496147,
+        "longitude": -8.6057736
+      },
+      "checkinTime": "16:00",
+      "checkoutTime": "11:00",
+      "@id": "https://frontrowporto.com/#rental",
+      "url": "https://frontrowporto.com/",
+      "description": "这套明亮的约56平方米公寓可住两人，位于圣卡塔琳娜步行街旁的葡萄牙式二楼（按首层为一楼计算，相当于三楼）。三扇高大的法式窗面向街道，室内设开放式客厅和厨房，以及专用睡眠区。",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua de Santa Catarina 392, 2 Frt Esq",
+        "addressLocality": "Porto",
+        "addressCountry": "PT"
+      },
+      "sameAs": [
+        "https://www.airbnb.com/rooms/1455066495407495959"
+      ],
+      "containsPlace": {
+        "@type": [
+          "Accommodation",
+          "Apartment"
+        ],
+        "@id": "https://frontrowporto.com/#apartment",
+        "name": "Santa Catarina Front-Row Suite",
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "value": 2
+        },
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 56,
+          "unitCode": "MTK"
+        },
+        "floorLevel": "2",
+        "numberOfBathroomsTotal": 1,
+        "bed": {
+          "@type": "BedDetails",
+          "typeOfBed": "Double",
+          "numberOfBeds": 1
+        },
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "wifi",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "ac",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "tv",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "elevator",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "kitchen",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "licenseNum",
+            "value": "Portugal AL: 165999/AL"
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "washerDryer",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://frontrowporto.com/zh-cn/#faq",
+      "inLanguage": "zh-Hans",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "最多可以住几位客人?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最多2位客人。公寓在专用睡眠区配有一张双人床,并有一间带步入式淋浴的浴室。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "入住和退房时间是什么时候?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "入住时间为16:00起,退房时间为11:00前。具体细节和灵活安排将在Airbnb的每笔预订中确认。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "公寓适合远程办公吗?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "适合。这里有Wi-Fi和专用工作区,客厅透过三扇高窗获得充足的自然光。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "有电梯吗?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有。公寓位于葡萄牙式二楼，楼内设有电梯。如需了解入口台阶或特定通行条件，请通过Airbnb咨询。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "有洗衣机吗?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有,公寓内配有洗衣机和烘干机,长住也很方便。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么选择这套公寓？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "从葡萄牙式二楼的三扇高大法式窗，可以欣赏圣卡塔琳娜街景。约56平方米的明亮空间和开放式客厅，为两位旅客提供舒适的波尔图市中心落脚点。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "公寓离龙之体育场有多远？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "博良地铁站距公寓步行约1分钟。从那里乘地铁可直达龙之体育场，无需换乘，约7至8分钟。比赛日请预留额外的等候和入场时间。该球场是FC波尔图的主场，曾举办葡萄牙国家队比赛，也是2030年国际足联世界杯的比赛场馆。适合来波尔图看球的游客入住。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何预订这套指定公寓？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "点击Airbnb按钮，打开Santa Catarina Front-Row Suite的房源1455066495407495959。可订日期、总价以及预订和取消条款均以Airbnb展示为准。"
+          }
+        }
+      ]
+    }
+  ]
+}
