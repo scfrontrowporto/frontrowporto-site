@@ -64,7 +64,8 @@
         "name": "Santa Catarina Front-Row Suite",
         "occupancy": {
           "@type": "QuantitativeValue",
-          "value": 2
+          "value": 2,
+          "maxValue": 2
         },
         "floorSize": {
           "@type": "QuantitativeValue",
@@ -73,11 +74,18 @@
         },
         "floorLevel": "2",
         "numberOfBathroomsTotal": 1,
-        "bed": {
-          "@type": "BedDetails",
-          "typeOfBed": "Double",
-          "numberOfBeds": 1
-        },
+        "bed": [
+          {
+            "@type": "BedDetails",
+            "typeOfBed": "Double",
+            "numberOfBeds": 1
+          },
+          {
+            "@type": "BedDetails",
+            "typeOfBed": "Sofa bed",
+            "numberOfBeds": 1
+          }
+        ],
         "amenityFeature": [
           {
             "@type": "LocationFeatureSpecification",
@@ -127,7 +135,7 @@
           "name": "宿泊できる人数は?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "最大2名様です。専用の寝室エリアにダブルベッド1台、シャワー付きバスルーム1室があります。"
+            "text": "ダブルベッドとソファベッドがあり、別々のベッドで眠りたいご友人同士など、2名様のご滞在に柔軟に対応できます。定員は最大2名様です。"
           }
         },
         {
@@ -175,7 +183,7 @@
           "name": "アパートからEstádio do Dragãoまでの距離は？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "ボリャオン駅までは徒歩約1分です。そこからEstádio do Dragãoまではメトロで乗り換えなし、約7〜8分です。試合当日は待ち時間や入場の時間に余裕を見てください。このスタジアムはFCポルトの本拠地で、ポルトガル代表の試合も開催されたことがあり、2030年FIFAワールドカップの会場でもあります。試合観戦でポルトを訪れる方に便利な拠点です。"
+            "text": "ボリャオン駅までは徒歩約1分です。そこからEstádio do Dragãoまではメトロで乗り換えなし、約7〜8分です。このスタジアムはFCポルトの本拠地で、ポルトガル代表の試合も開催されたことがあり、2030年FIFAワールドカップの会場でもあります。試合観戦でポルトを訪れる方に便利な拠点です。"
           }
         },
         {

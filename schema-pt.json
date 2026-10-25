@@ -64,7 +64,8 @@
         "name": "Santa Catarina Front-Row Suite",
         "occupancy": {
           "@type": "QuantitativeValue",
-          "value": 2
+          "value": 2,
+          "maxValue": 2
         },
         "floorSize": {
           "@type": "QuantitativeValue",
@@ -73,11 +74,18 @@
         },
         "floorLevel": "2",
         "numberOfBathroomsTotal": 1,
-        "bed": {
-          "@type": "BedDetails",
-          "typeOfBed": "Double",
-          "numberOfBeds": 1
-        },
+        "bed": [
+          {
+            "@type": "BedDetails",
+            "typeOfBed": "Double",
+            "numberOfBeds": 1
+          },
+          {
+            "@type": "BedDetails",
+            "typeOfBed": "Sofa bed",
+            "numberOfBeds": 1
+          }
+        ],
         "amenityFeature": [
           {
             "@type": "LocationFeatureSpecification",
@@ -127,7 +135,7 @@
           "name": "Quantos hóspedes podem ficar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Até 2 hóspedes. O apartamento tem uma cama de casal numa área de descanso dedicada e uma casa de banho com duche."
+            "text": "Uma cama de casal e um sofá-cama permitem acomodar dois hóspedes com flexibilidade, incluindo amigos que preferem dormir em camas separadas. Ocupação máxima: 2 hóspedes."
           }
         },
         {
