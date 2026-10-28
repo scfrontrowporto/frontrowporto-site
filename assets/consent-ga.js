@@ -2,6 +2,7 @@
    No analytics loads until the visitor explicitly accepts. Choice is stored locally. */
 (function () {
   'use strict';
+  return; // Collection paused pending informed privacy notice and withdrawal controls.
   var MEASUREMENT_ID = 'G-2F5K8P6WWC';
   var STORAGE_KEY = 'frp-analytics-consent';
   var TEXT = {
