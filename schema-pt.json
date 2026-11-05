@@ -11,7 +11,7 @@
       "@type": "WebPage",
       "@id": "https://frontrowporto.com/pt/#webpage",
       "url": "https://frontrowporto.com/pt/",
-      "name": "Santa Catarina Front-Row Suite | Apartamento na Rua de Santa Catarina, Porto",
+      "name": "Apartamento de Férias no Porto para Dois | Santa Catarina Front-Row Suite",
       "inLanguage": "pt",
       "isPartOf": {
         "@id": "https://frontrowporto.com/#website"
@@ -130,6 +130,14 @@
       "@id": "https://frontrowporto.com/pt/#faq",
       "inLanguage": "pt",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Onde fica exatamente o apartamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rua de Santa Catarina 392, na zona de Santo Ildefonso, no centro do Porto. A rua aqui é pedonal, ladeada de lojas e cafés, a uma curta caminhada do Mercado do Bolhão, da Capela das Almas, revestida a azulejos, e da estação de metro Bolhão."
+          }
+        },
         {
           "@type": "Question",
           "name": "Quantos hóspedes podem ficar?",
