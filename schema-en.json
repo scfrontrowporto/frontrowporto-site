@@ -11,7 +11,7 @@
       "@type": "WebPage",
       "@id": "https://frontrowporto.com/#webpage",
       "url": "https://frontrowporto.com/",
-      "name": "Santa Catarina Front-Row Suite | Bright 56 m² Apartment, Porto",
+      "name": "Porto Holiday Apartment for Two | Santa Catarina Front-Row Suite",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://frontrowporto.com/#website"
@@ -130,6 +130,14 @@
       "@id": "https://frontrowporto.com/#faq",
       "inLanguage": "en",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where exactly is the apartment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rua de Santa Catarina 392, in the Santo Ildefonso district of central Porto. The street is pedestrian-only here, lined with shops and cafes, a short walk from Bolhao Market, the Capela das Almas tiled chapel and Bolhao metro station."
+          }
+        },
         {
           "@type": "Question",
           "name": "How many guests can stay?",
