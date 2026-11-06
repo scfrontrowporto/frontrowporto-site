@@ -11,7 +11,7 @@
       "@type": "WebPage",
       "@id": "https://frontrowporto.com/es/#webpage",
       "url": "https://frontrowporto.com/es/",
-      "name": "Santa Catarina Front-Row Suite | Apartamento en Rua de Santa Catarina, Oporto",
+      "name": "Apartamento vacacional para 2 en Oporto | Santa Catarina Front-Row Suite",
       "inLanguage": "es",
       "isPartOf": {
         "@id": "https://frontrowporto.com/#website"
@@ -122,8 +122,10 @@
             "name": "washerDryer",
             "value": true
           }
-        ]
-      }
+        ],
+        "additionalType": "EntirePlace"
+      },
+      "additionalType": "Apartment"
     },
     {
       "@type": "FAQPage",
