@@ -11,7 +11,7 @@
       "@type": "WebPage",
       "@id": "https://frontrowporto.com/fr/#webpage",
       "url": "https://frontrowporto.com/fr/",
-      "name": "Santa Catarina Front-Row Suite | Appartement sur Rua de Santa Catarina, Porto",
+      "name": "Appartement de vacances pour 2 à Porto | Santa Catarina Front-Row Suite",
       "inLanguage": "fr",
       "isPartOf": {
         "@id": "https://frontrowporto.com/#website"
@@ -122,8 +122,10 @@
             "name": "washerDryer",
             "value": true
           }
-        ]
-      }
+        ],
+        "additionalType": "EntirePlace"
+      },
+      "additionalType": "Apartment"
     },
     {
       "@type": "FAQPage",
