@@ -1,22 +1,121 @@
-/* Optional aggregate measurement. No third-party script, visitor ID or session tracking. */
-(function(){'use strict';
-var KEY='frp-aggregate-consent-v2',TTL=180*86400000,choice=null,when=0;
-var lang=(document.documentElement.lang||'en').toLowerCase(),paths={'/':'en','/pt/':'pt','/es/':'es','/fr/':'fr','/ja/':'ja','/ko/':'ko','/zh-cn/':'zh-cn'};
-if(lang==='zh-hans')lang='zh-cn';
-var path=location.pathname.replace(/index\.html$/,''),page=paths[path]||(path==='/guides/'||/^\/guides\/(where-to-stay-porto-for-two|porto-for-two-in-winter)\/$/.test(path)?'en':null);if(!page)return;
-var T={en:['Optional statistics','May we count page loads and Airbnb clicks by broad arrival channel (for example Pinterest or search)? Only with your consent. No analytics cookies, visitor profiles or session tracking. Rejecting does not affect booking.','Accept','Reject','Privacy notice (EN/PT)','Privacy settings'],pt:['Estatísticas opcionais','Podemos contar carregamentos e cliques no Airbnb por canal de chegada (por exemplo Pinterest ou pesquisa)? Só com o seu consentimento. Sem cookies de análise, perfis ou sessões. A recusa não afeta a reserva.','Aceitar','Recusar','Privacidade (EN/PT)','Privacidade'],es:['Estadísticas opcionales','¿Podemos contar páginas y clics a Airbnb por canal de llegada, como Pinterest o búsqueda? Solo con tu consentimiento. Sin cookies de análisis, perfiles ni sesiones. Rechazar no afecta a la reserva.','Aceptar','Rechazar','Privacidad (EN/PT)','Privacidad'],fr:['Statistiques facultatives','Pouvons-nous compter les pages et clics Airbnb par canal d’arrivée, comme Pinterest ou la recherche ? Uniquement avec votre accord. Sans cookies de mesure, profils ni suivi de session. Le refus ne change pas la réservation.','Accepter','Refuser','Confidentialité (EN/PT)','Confidentialité'],ja:['任意の統計','同意された場合のみ、Pinterestや検索などの流入元の大分類ごとにページ表示とAirbnbへのクリックを集計します。解析用Cookie、個人プロファイル、セッション追跡は使用しません。拒否しても予約できます。','同意する','拒否する','プライバシー (EN/PT)','設定'],ko:['선택적 통계','동의하실 때만 Pinterest나 검색 등 유입 경로의 큰 분류별로 페이지 로드와 Airbnb 클릭을 집계합니다. 분석 쿠키, 방문자 프로필, 세션 추적은 사용하지 않습니다. 거부해도 예약할 수 있습니다.','동의','거부','개인정보 (EN/PT)','개인정보 설정'],'zh-cn':['可选统计','仅在您同意后，按Pinterest或搜索等来源大类统计页面加载和Airbnb链接点击。不使用分析Cookie、访客画像或会话跟踪。拒绝不影响预订。','同意','拒绝','隐私说明 (EN/PT)','隐私设置']}[lang]||null;if(!T)return;
-function restore(){try{var s=JSON.parse(localStorage.getItem(KEY));if(s&&['accept','reject'].includes(s.choice)&&s.at<=Date.now()&&Date.now()-s.at<TTL){choice=s.choice;when=s.at;}}catch(e){}}
-// Only a fixed category is retained in memory for this page, never a raw URL or identifier.
-var query=new URLSearchParams(location.search),test=query.get('frp_test');
-function channel(){var q=(query.get('utm_source')||'').toLowerCase();var allowed={pinterest:'pinterest',instagram:'instagram',facebook:'facebook',reddit:'reddit',bing:'bing',google:'google'};if(allowed[q])return allowed[q];try{var h=new URL(document.referrer).hostname.toLowerCase();function is(d){return h===d||h.endsWith('.'+d);}if(is('pinterest.com')||is('pinterest.pt'))return 'pinterest';if(is('reddit.com'))return 'reddit';if(is('instagram.com'))return 'instagram';if(is('facebook.com'))return 'facebook';if(is('bing.com'))return 'bing';if(/(^|\.)google\.(com|pt|co\.uk|fr|es|de|co\.jp)$/.test(h))return 'google';}catch(e){}return 'direct-or-unknown';}
-var source=channel();
-restore();function permitted(){return choice==='accept'&&Date.now()-when<TTL;}
-function send(event){if(!permitted())return;if(test==='1')return;var p=(event?'airbnb-click/':'/page/')+page+'/source/'+source;if(test==='receipt')p='TEST-20261103-v2/'+p;var u='https://frontrowporto.goatcounter.com/count?p='+encodeURIComponent(p)+'&e='+(event?'true':'false')+'&t='+encodeURIComponent(event?'Airbnb button':'Page load')+'&rnd='+Math.random().toString(36).slice(2);fetch(u,{method:'GET',mode:'cors',credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer',keepalive:true}).catch(function(){});}
-function choose(v){var before=permitted();choice=v;when=Date.now();try{localStorage.setItem(KEY,JSON.stringify({choice:v,at:when}));}catch(e){}close();if(v==='accept'&&!before)send(false);}
-function close(){var b=document.getElementById('frp-consent');if(b)b.remove();}
-function show(){if(document.getElementById('frp-consent'))return;var b=document.createElement('section');b.id='frp-consent';b.setAttribute('role','region');b.setAttribute('aria-label',T[0]);b.innerHTML='<strong></strong><p></p><div class="frp-actions"></div>';b.querySelector('strong').textContent=T[0];b.querySelector('p').textContent=T[1]+' Santa Catarina Front-Row Suite · YAN';var a=document.createElement('a');a.href='/privacy.html?version=20261103-final';a.textContent=T[4];b.querySelector('.frp-actions').appendChild(a);['accept','reject'].forEach(function(v,i){var n=document.createElement('button');n.type='button';n.textContent=T[2+i];n.onclick=function(){choose(v);};b.querySelector('.frp-actions').appendChild(n);});(document.querySelector('footer')||document.body).appendChild(b);}
-function ready(){document.querySelectorAll('a[href]').forEach(function(a){try{var u=new URL(a.href,location.href);if(u.origin===location.origin&&(paths[u.pathname.replace(/index\.html$/,'')]||/^\/guides\/(where-to-stay-porto-for-two\/|porto-for-two-in-winter\/)?$/.test(u.pathname.replace(/index\.html$/,'')))){if(source!=='direct-or-unknown')u.searchParams.set('utm_source',source);if(test==='1'||test==='receipt')u.searchParams.set('frp_test',test);a.href=u.href;}}catch(e){}});var css=document.createElement('style');css.textContent='#frp-consent{box-sizing:border-box;position:static;max-width:640px;margin:20px auto;background:#faf8f2;color:#123c32;padding:18px;border:1px solid #baa378;font:15px/1.5 Arial,sans-serif}#frp-consent p{margin:8px 0 14px}#frp-consent .frp-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}#frp-consent a{color:#123c32;text-decoration:underline;margin-right:auto}#frp-consent button{background:#fff;color:#123c32;border:1px solid #123c32;padding:10px 16px;font:15px Arial,sans-serif;cursor:pointer}#frp-settings{position:static;background:none;color:inherit;border:0;text-decoration:underline;padding:4px;font:inherit;cursor:pointer}';document.head.appendChild(css);var n=document.createElement('button');n.id='frp-settings';n.type='button';n.textContent=T[5];n.onclick=show;(document.querySelector('footer')||document.body).appendChild(n);if(permitted())send(false);}
-document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;try{var u=new URL(a.href);if(u.hostname==='www.airbnb.com'&&u.pathname==='/rooms/1455066495407495959')send(true);}catch(x){}});
-window.addEventListener('storage',function(e){if(e.key===KEY){choice=null;when=0;restore();close();}});
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready);else ready();
+/* Aggregate statistics only after a valid choice. No visitor IDs or sessions. */
+(function () {
+  'use strict';
+  var KEY = 'frp-aggregate-consent-v2', TTL = 180 * 86400000;
+  var choice = null, chosenAt = 0, counted = false;
+  var route = location.pathname.replace(/index\.html$/, '');
+  var pages = {
+    '/': 'en/home', '/pt/': 'pt/home', '/es/': 'es/home', '/fr/': 'fr/home',
+    '/ja/': 'ja/home', '/ko/': 'ko/home', '/zh-cn/': 'zh-cn/home',
+    '/guides/': 'en/guides',
+    '/guides/where-to-stay-porto-for-two/': 'en/where-to-stay-porto-for-two',
+    '/guides/porto-for-two-in-winter/': 'en/porto-for-two-in-winter'
+  };
+  var page = pages[route], privacy = route === '/privacy.html';
+  if (!page && !privacy) return;
+  function restore() {
+    choice = null; chosenAt = 0;
+    try {
+      var saved = JSON.parse(localStorage.getItem(KEY));
+      if (saved && ['accept', 'reject'].indexOf(saved.choice) !== -1 &&
+          Number.isFinite(saved.at) && saved.at <= Date.now() && Date.now() - saved.at < TTL) {
+        choice = saved.choice; chosenAt = saved.at;
+      }
+    } catch (_) {}
+  }
+  function permitted() { return choice === 'accept' && Date.now() - chosenAt < TTL; }
+  restore();
+  // Read optional arrival information only after permission. Never transmit raw URLs.
+  function details() {
+    var query = new URLSearchParams(location.search);
+    var known = {
+      pinterest: 'pinterest', instagram: 'instagram', facebook: 'facebook', reddit: 'reddit',
+      google: 'google', bing: 'bing', 'ai-chatgpt': 'ai-chatgpt',
+      'ai-perplexity': 'ai-perplexity', 'ai-gemini': 'ai-gemini', 'ai-copilot': 'ai-copilot',
+      external: 'external', unknown: 'unknown'
+    };
+    var source = known[(query.get('utm_source') || '').toLowerCase()] || 'unknown';
+    if (source === 'unknown') {
+      try {
+        var host = new URL(document.referrer).hostname.toLowerCase();
+        var is = function (domain) { return host === domain || host.endsWith('.' + domain); };
+        if (is('pinterest.com') || is('pinterest.pt')) source = 'pinterest';
+        else if (is('instagram.com')) source = 'instagram';
+        else if (is('facebook.com')) source = 'facebook';
+        else if (is('reddit.com')) source = 'reddit';
+        else if (is('chatgpt.com') || is('chat.openai.com')) source = 'ai-chatgpt';
+        else if (is('perplexity.ai')) source = 'ai-perplexity';
+        else if (is('gemini.google.com')) source = 'ai-gemini';
+        else if (is('copilot.microsoft.com')) source = 'ai-copilot';
+        else if (is('bing.com')) source = 'bing';
+        else if (/(^|\.)google\.(com|pt|co\.uk|fr|es|de|co\.jp|co\.kr|co\.il|ca|com\.au)$/.test(host)) source = 'google';
+        else if (host !== location.hostname) source = 'external';
+      } catch (_) {}
+    }
+    return { source: source, test: query.get('frp_test') };
+  }
+  function send(placement) {
+    if (!page || !permitted() || (!placement && counted)) return;
+    var info = details();
+    if (info.test === '1') return;
+    var name = placement ? 'v3/airbnb-click/' + page + '/placement/' + placement : '/v3/page/' + page;
+    name += '/source/' + info.source;
+    if (info.test === 'receipt') name = 'TEST-20261107-v3/' + name;
+    if (!placement) counted = true;
+    var url = 'https://frontrowporto.goatcounter.com/count?p=' + encodeURIComponent(name) +
+      '&e=' + (placement ? 'true' : 'false') + '&t=' + encodeURIComponent(placement ? 'Airbnb click' : 'Page load');
+    // Do not wait, cancel navigation, retry around blockers, or change the Airbnb destination.
+    try {
+      fetch(url, { method: 'GET', mode: 'cors', credentials: 'omit', cache: 'no-store',
+        referrerPolicy: 'no-referrer', keepalive: true }).catch(function () {});
+    } catch (_) {}
+  }
+  function decorateLinks() {
+    if (!permitted() || !page) return;
+    var info = details();
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      try {
+        var u = new URL(a.href, location.href);
+        if (u.origin !== location.origin || !pages[u.pathname.replace(/index\.html$/, '')]) return;
+        if (info.source !== 'unknown') u.searchParams.set('utm_source', info.source);
+        if (info.test === '1' || info.test === 'receipt') u.searchParams.set('frp_test', info.test);
+        a.href = u.href;
+      } catch (_) {}
+    });
+  }
+  function controls() {
+    if (!privacy) return;
+    var container = document.getElementById('statistics-controls');
+    if (!container) return;
+    var status = container.querySelector('[data-choice-status]');
+    if (status) status.textContent = choice === 'accept' ? 'Allowed / Permitidas' :
+      choice === 'reject' ? 'Not allowed / Não permitidas' : 'Not chosen: off / Sem escolha: desativadas';
+    container.querySelectorAll('[data-statistics-choice]').forEach(function (button) {
+      button.onclick = function () {
+        choice = button.dataset.statisticsChoice; chosenAt = Date.now();
+        try { localStorage.setItem(KEY, JSON.stringify({ choice: choice, at: chosenAt })); } catch (_) {}
+        controls();
+      };
+    });
+  }
+  function ready() { controls(); decorateLinks(); send(null); }
+  function outgoing(e) {
+    if (e.type === 'auxclick' && e.button !== 1) return;
+    var node = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!node) return;
+    try {
+      var u = new URL(node.href);
+      if (u.protocol !== 'https:' || u.hostname !== 'www.airbnb.com' || u.pathname !== '/rooms/1455066495407495959') return;
+      var position = node.dataset.booking || node.dataset.placement || 'other';
+      var allowed = ['header', 'hero', 'social-proof', 'closing', 'mobile', 'footer', 'guide-winter', 'guide-evergreen', 'guide-index'];
+      if (allowed.indexOf(position) === -1) position = 'other';
+      send(position);
+    } catch (_) {}
+  }
+  document.addEventListener('click', outgoing);
+  document.addEventListener('auxclick', outgoing);
+  window.addEventListener('storage', function (e) {
+    if (e.key === KEY || e.key === null) { restore(); controls(); }
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready); else ready();
 })();
