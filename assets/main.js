@@ -1,8 +1,11 @@
+// Shared booking event: all pages, independent of homepage animation/gallery.
+document.addEventListener('click',e=>{const a=e.target.closest('a[data-booking]');if(a)document.dispatchEvent(new CustomEvent('booking_click',{detail:{placement:a.dataset.booking,language:document.documentElement.lang,destination:'airbnb',listing_id:'1455066495407495959'}}))});
 document.addEventListener('DOMContentLoaded',()=>{
+ if(!document.querySelector('.cinematic'))return;
  const motionAllowed=!matchMedia('(prefers-reduced-motion: reduce)').matches;
  document.body.classList.add('js-ready');if(motionAllowed)document.body.classList.add('js-motion');
  const hero=document.querySelector('.cinematic'),heroPicture=hero.querySelector('.hero-photo');
- const bar=document.querySelector('.mobile-book');if('ResizeObserver'in window)new ResizeObserver(()=>document.documentElement.style.setProperty('--booking-height',Math.ceil(bar.getBoundingClientRect().height)+'px')).observe(bar);
+ const bar=document.querySelector('.mobile-book');if(bar&&'ResizeObserver'in window)new ResizeObserver(()=>document.documentElement.style.setProperty('--booking-height',Math.ceil(bar.getBoundingClientRect().height)+'px')).observe(bar);
 
  const data=JSON.parse(document.getElementById('gallery-data').textContent),dialog=document.querySelector('.lightbox');let current=0,opener=null;
  function display(n){current=(n+data.length)%data.length;const d=data[current];dialog.querySelector('img').src=d.src;dialog.querySelector('img').alt=d.alt;if(motionAllowed)dialog.querySelector('img').animate([{opacity:.15,transform:'translateX(12px)'},{opacity:1,transform:'translateX(0)'}],{duration:360,easing:'ease-out'});dialog.querySelector('.photo-caption').textContent=d.alt;dialog.querySelector('.photo-counter').textContent=String(current+1).padStart(2,'0')+' / '+data.length;}
@@ -15,7 +18,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  let stageX=0;image.addEventListener('touchstart',e=>{stageX=e.changedTouches[0].clientX},{passive:true});image.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-stageX;if(Math.abs(dx)>45)choose((selected+(dx<0?1:5))%6)},{passive:true});
  }
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(!reduced&&'IntersectionObserver'in window){const ob=new IntersectionObserver(items=>items.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in-view');ob.unobserve(x.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));}
- document.addEventListener('click',e=>{const a=e.target.closest('a[data-booking]');if(a)document.dispatchEvent(new CustomEvent('booking_click',{detail:{placement:a.dataset.booking,language:document.documentElement.lang,destination:'airbnb',listing_id:'1455066495407495959'}}))});
+
 });
 // Scroll-linked opening; once fully revealed, keep the room visible until page reload.
 document.addEventListener('DOMContentLoaded',()=>{
