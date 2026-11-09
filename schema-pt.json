@@ -22,6 +22,7 @@
     },
     {
       "@type": "VacationRental",
+      "additionalType": "Apartment",
       "identifier": "scfrs-001",
       "name": "Santa Catarina Front-Row Suite",
       "image": [
@@ -60,6 +61,7 @@
           "Accommodation",
           "Apartment"
         ],
+        "additionalType": "EntirePlace",
         "@id": "https://frontrowporto.com/#apartment",
         "name": "Santa Catarina Front-Row Suite",
         "occupancy": {
