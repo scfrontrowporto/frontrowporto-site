@@ -50,6 +50,8 @@
         "@type": "PostalAddress",
         "streetAddress": "Rua de Santa Catarina 392, 2 Frt Esq",
         "addressLocality": "Porto",
+        "addressRegion": "Porto",
+        "postalCode": "4000-443",
         "addressCountry": "PT"
       },
       "sameAs": [
